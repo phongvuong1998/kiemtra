@@ -1,5 +1,6 @@
 package com.example.student.kiemtra;
 
+import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText tk,pw;
-    Button dn;
+    Button dn,thoat;
     CheckBox luu;
     AlertDialog.Builder dialog;
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         pw = (EditText) findViewById(R.id.ed_pw);
         luu = (CheckBox) findViewById(R.id.cb_luutt);
         dn = (Button) findViewById(R.id.bt_dn);
+        thoat = (Button) findViewById(R.id.bt_thoat);
         dialog= new AlertDialog.Builder(this);
         dialog.setTitle("Thong bao");
         dn.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +36,26 @@ public class MainActivity extends AppCompatActivity {
                     dialog.setMessage("Chào mừng bạn đăng nhập hệ thống, thông tin của bạn khong được lưu");
                 }
                 dialog.show();
+            }
+        });
+        thoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder t = new AlertDialog.Builder(MainActivity.this);
+                t.setTitle("thong bao");
+                t.setMessage("ban co muon thoat ???");
+                t.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                });
+                t.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                });
             }
         });
     }
